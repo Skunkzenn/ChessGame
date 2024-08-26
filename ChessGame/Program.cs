@@ -19,7 +19,13 @@ namespace xadrez_console
             */
 
             Tabuleiro tab = new Tabuleiro(8, 8);
+            tab.AdicionarPeca(new Torre(tab, Cor.Azul), new Posicao(0,0));
+            tab.AdicionarPeca(new Torre(tab, Cor.Branco), new Posicao(1,3));
+            tab.AdicionarPeca(new Rei(tab, Cor.Azul), new Posicao(4,3));
+
             Tela.ImprimirTabuleiro(tab);
+
+            Console.ReadLine();
         }
     }
 }

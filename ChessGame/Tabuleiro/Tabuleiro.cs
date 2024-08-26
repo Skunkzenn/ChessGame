@@ -18,5 +18,11 @@
             return Pecas[linha, coluna];
         }
 
+        public void AdicionarPeca(Peca p, Posicao pos)
+        {
+            Pecas[pos.Linha, pos.Coluna] = p; //Acessa a matriz de pecas em pos.linha e pos.coluna
+            p.Posicao = pos; //Adiciona a peça na posicao
+        }
+
     }
 }

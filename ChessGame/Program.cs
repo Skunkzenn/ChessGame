@@ -4,8 +4,9 @@
 //  <-> Camada Tabuleiro        - Representação dos objetos(peças, tabuleiro)
 // Em camadas facilita o projeto em manutenções, boas práticas de código pois temos tudo bem organizado e distinguido.
 using tabuleiro;
+using System;
 
-namespace ChessGame
+namespace xadrez_console
 {
     internal class Program
     {
@@ -18,6 +19,7 @@ namespace ChessGame
             */
 
             Tabuleiro tab = new Tabuleiro(8, 8);
+            Tela.ImprimirTabuleiro(tab);
         }
     }
 }

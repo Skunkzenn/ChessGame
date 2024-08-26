@@ -12,5 +12,11 @@
             Colunas = colunas;
             Pecas = new Peca[linhas, colunas]; // Instancia a matriz de peças com a quantidade de linhas e colunas
         }
+
+        public Peca SupPeca(int linha, int coluna)
+        {
+            return Pecas[linha, coluna];
+        }
+
     }
 }

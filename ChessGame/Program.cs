@@ -11,10 +11,13 @@ namespace ChessGame
     {
         static void Main(string[] args)
         {
-            Posicao p; //objeto instanciado para posicao linha x coluna
+            /*
+            Posicao p; objeto instanciado para posicao linha x coluna
             p = new Posicao(3, 4);
+            Console.Write(p); 
+            */
 
-            Console.Write(p);
+            Tabuleiro tab = new Tabuleiro(8, 8);
         }
     }
 }

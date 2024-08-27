@@ -18,12 +18,13 @@ namespace xadrez_console
             Console.Write(p); 
             */
 
-            /* try { 
+            try { 
 
             Tabuleiro tab = new Tabuleiro(8, 8);
-            tab.AdicionarPeca(new Torre(tab, Cor.Azul), new Posicao(0,0));
+            tab.AdicionarPeca(new Torre(tab, Cor.Preto), new Posicao(0,0));
             tab.AdicionarPeca(new Torre(tab, Cor.Branco), new Posicao(1,3));
-            tab.AdicionarPeca(new Rei(tab, Cor.Azul), new Posicao(4,3));
+            tab.AdicionarPeca(new Rei(tab, Cor.Branco), new Posicao(4,3));
+            tab.AdicionarPeca(new Rei(tab, Cor.Preto), new Posicao(3,3));
 
             Tela.ImprimirTabuleiro(tab);
 
@@ -32,12 +33,12 @@ namespace xadrez_console
             catch (TabuleiroException e)
             {
                 Console.WriteLine(e.Message);
-            }*/
+            }
 
-            PosicaoXadrez pos = new PosicaoXadrez('c', 7);
-            Console.WriteLine(pos);
+            //PosicaoXadrez pos = new PosicaoXadrez('c', 7);
+            //Console.WriteLine(pos);
 
-            Console.WriteLine(pos.ToPosicao());
+            //Console.WriteLine(pos.ToPosicao());
 
         }
     }

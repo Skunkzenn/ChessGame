@@ -14,5 +14,10 @@
             Tab = tab;
             QntMovimentos = 0; //No inicio do jogo tem 0 movimentos
         }
+
+        public void IncrementarMovimentos()
+        {
+            QntMovimentos++;
+        }
     }
 }

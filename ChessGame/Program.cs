@@ -18,17 +18,12 @@ namespace xadrez_console
             Console.Write(p); 
             */
 
-            try { 
+            try {
 
-            Tabuleiro tab = new Tabuleiro(8, 8);
-            tab.AdicionarPeca(new Torre(tab, Cor.Preto), new Posicao(0,0));
-            tab.AdicionarPeca(new Torre(tab, Cor.Branco), new Posicao(1,3));
-            tab.AdicionarPeca(new Rei(tab, Cor.Branco), new Posicao(4,3));
-            tab.AdicionarPeca(new Rei(tab, Cor.Preto), new Posicao(3,3));
+                PartidaDeXadrez partida = new PartidaDeXadrez();
 
-            Tela.ImprimirTabuleiro(tab);
-
-            Console.ReadLine();
+                Tela.ImprimirTabuleiro(partida.Tab);
+            
             }
             catch (TabuleiroException e)
             {

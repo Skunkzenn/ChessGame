@@ -44,6 +44,19 @@
             p.Posicao = pos; //Adiciona a peça na posicao
         }
 
+        public Peca RemoverPeca(Posicao pos)
+        {
+            // Verifica se há uma peça na posição; se não houver, retorna null
+            if (SupPeca(pos) == null)
+            {
+                return null;
+            }
+            Peca aux = SupPeca(pos); // Armazena a peça que está na posição
+            aux.Posicao = null; // Remove a referência à posição da peça (a peça não está mais no tabuleiro)
+            Pecas[pos.Linha, pos.Coluna] = null; // Remove a peça da matriz, definindo a posição como null (vazia)
+            return aux;
+        }
+
 
         //Função para verificar se a posição(pos) da peça é valida dentro do tabuleiro, de forma que não ultrapasse a matriz
         public bool PosicaoValida(Posicao pos)

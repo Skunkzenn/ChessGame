@@ -1,6 +1,6 @@
 ﻿namespace tabuleiro
 {
-    class Peca
+    abstract class Peca
     {
         public Posicao Posicao {  get; set; }
         public Cor Cor {  get; protected set; } //Acessa dados apenas pela subclasse
@@ -18,6 +18,22 @@
         public void IncrementarMovimentos()
         {
             QntMovimentos++;
+        }
+
+        public abstract bool VerificarMovimentosPossiveis() //Verdadeiro aonde for um movimento possível e falso onde não for.
+        {
+            bool[,] mat = MovimentosPossiveis();
+            for (int i = 0; i < Tab.Linhas; i++)
+            {
+                for (int j = 0; j < Tab.Colunas; j++)
+                {
+                    if (mat[i, j])
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 }

@@ -12,5 +12,7 @@ namespace xadrez_console
         {
             return "T";
         }
+
+
     }
 }

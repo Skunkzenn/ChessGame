@@ -26,7 +26,7 @@ namespace xadrez_console
             Console.WriteLine("  a b c d e f g h");
         }
 
-    public static void ImprimirPeca(Peca peca)
+        public static void ImprimirPeca(Peca peca)
         {
             if(peca.Cor == Cor.Branco)
             {
@@ -39,6 +39,14 @@ namespace xadrez_console
                 Console.Write(peca); // Exibe o texto peca com a cor amarela
                 Console.ForegroundColor = aux; // Restaura a cor original do texto
             }
+        }
+
+        public static PosicaoXadrez LerPosicaoXadrez()
+        {
+            string s = Console.ReadLine();
+            char coluna = s[0];
+            int linha = int.Parse(s[1] + ""); // + "" força que seja string
+            return new PosicaoXadrez(coluna, linha);
         }
     }
 }

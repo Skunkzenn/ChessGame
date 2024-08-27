@@ -18,6 +18,8 @@ namespace xadrez_console
             Console.Write(p); 
             */
 
+            try { 
+
             Tabuleiro tab = new Tabuleiro(8, 8);
             tab.AdicionarPeca(new Torre(tab, Cor.Azul), new Posicao(0,0));
             tab.AdicionarPeca(new Torre(tab, Cor.Branco), new Posicao(1,3));
@@ -26,6 +28,11 @@ namespace xadrez_console
             Tela.ImprimirTabuleiro(tab);
 
             Console.ReadLine();
+            }
+            catch (TabuleiroException e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }

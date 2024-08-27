@@ -13,13 +13,13 @@
             Pecas = new Peca[linhas, colunas]; // Instancia a matriz de peças com a quantidade de linhas e colunas
         }
 
-        //Método que da execsso individual a uma peça do tabuleiro, retornando uma peça na posição
+        //Método que usa coordenadas (linha e coluna) como parâmetros para acessar uma peça específica na matriz Pecas
         public Peca SupPeca(int linha, int coluna) 
         {
             return Pecas[linha, coluna];
         }
 
-        //Método com sobrecarga para identificar a posição da peça
+        //Método com sobrecarga que usa um objeto Posicao que encapsula as coordenadas
         public Peca SupPeca(Posicao pos)
         {
             return Pecas[pos.Linha, pos.Coluna];
@@ -29,7 +29,7 @@
         public bool ExistePeca(Posicao pos)
         {
             ValidarPosicao(pos); //Valida a posição sob o tabuleiro, para não haver peças foram da matriz
-            return SupPeca(pos) != null;
+            return SupPeca(pos) != null; //Obtem a posição da peça na matriz
         }
 
 

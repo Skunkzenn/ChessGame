@@ -18,7 +18,7 @@ namespace xadrez_console
             Console.Write(p); 
             */
 
-            try { 
+            /* try { 
 
             Tabuleiro tab = new Tabuleiro(8, 8);
             tab.AdicionarPeca(new Torre(tab, Cor.Azul), new Posicao(0,0));
@@ -32,7 +32,13 @@ namespace xadrez_console
             catch (TabuleiroException e)
             {
                 Console.WriteLine(e.Message);
-            }
+            }*/
+
+            PosicaoXadrez pos = new PosicaoXadrez('c', 7);
+            Console.WriteLine(pos);
+
+            Console.WriteLine(pos.ToPosicao());
+
         }
     }
 }

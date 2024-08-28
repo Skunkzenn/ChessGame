@@ -20,6 +20,24 @@
             QntMovimentos++;
         }
 
+        public bool ExisteMovimentosPossiveis() {
+            bool[,] mat = VerificarMovimentosPossiveis();
+            for (int i = 0; i < Tab.Linhas; i++) {
+                for (int j = 0; j < Tab.Colunas; j++) {
+                    if (mat[i, j])
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public bool PodeMoverPara(Posicao pos)
+        {
+            return VerificarMovimentosPossiveis()[pos.Linha, pos.Coluna];
+        }
+
         public abstract bool[,] VerificarMovimentosPossiveis(); //Verdadeiro aonde for um movimento possível e falso onde não for.
        
     }

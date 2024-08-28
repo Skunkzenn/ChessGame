@@ -8,7 +8,7 @@ namespace xadrez_console
         public Tabuleiro Tab { get; private set; }
         public int Turno { get; private set; }
         public Cor JogadorAtual { get; private set; }
-        public bool Termidada {  get; private set; }
+        public bool Termidada { get; private set; }
 
         public PartidaDeXadrez()
         {
@@ -27,8 +27,8 @@ namespace xadrez_console
             Tab.AdicionarPeca(p, dest);
         }
 
-        public void RealizaJogada(Posicao origem, Posicao destino) 
-        { 
+        public void RealizaJogada(Posicao origem, Posicao destino)
+        {
             ExecutaMovimento(origem, destino);
             Turno++;
             AlteraJogador();
@@ -46,6 +46,30 @@ namespace xadrez_console
                 JogadorAtual = Cor.Branco;
             }
         }
+
+        public void ValidarPosicaoOrigem(Posicao pos)
+        {
+            if (Tab.SupPeca(pos) == null)
+            {
+                throw new TabuleiroException("Não existe peça nessa posição escolhida.");
+            }
+            if (JogadorAtual != Tab.SupPeca(pos).Cor)
+            {
+                throw new TabuleiroException("A peça de origem, requer que seja uma sua.");
+            }
+            if (!Tab.SupPeca(pos).ExisteMovimentosPossiveis()){
+                throw new TabuleiroException("Não existe movimentos possíveis.");
+            }
+        }
+
+        public void ValidarPosicaoDestino(Posicao origem, Posicao destino)
+        {
+            if (!Tab.SupPeca(origem).PodeMoverPara(destino))
+            {
+                throw new TabuleiroException("Posicao de destino inválida!");
+            }
+        }
+
 
         private void ColocarPecas()
         {

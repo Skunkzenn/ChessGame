@@ -14,66 +14,76 @@ namespace xadrez_console
             return "R";
         }
 
+        //Método para verificar se a peça pode ser movida par X posição
         private bool PodeMover(Posicao pos)
         {
             Peca p = Tab.SupPeca(pos);
-            return p == null || p.Cor != Cor;
+            return p == null || p.Cor != Cor; // Retorna se a localidade da peça está livre ou quando a Cor da peça for diferente
         }
+
         public override bool[,] VerificarMovimentosPossiveis()
         {
             bool[,] mat = new bool[Tab.Linhas, Tab.Colunas];
 
             Posicao pos = new Posicao(0, 0);
 
-            // acima
+            // acima ⬆
             pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna);
             if (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
-            // ne
+
+            // nordeste ⬈
             pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 1);
             if (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
-            // direita
+
+            // direita ⮕
             pos.DefinirValores(Posicao.Linha, Posicao.Coluna + 1);
             if (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
-            // se
+
+            // sudeste ⬊
             pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 1);
             if (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
-            // abaixo
+
+            // abaixo ⬇
             pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna);
             if (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
-            // so
+
+            // sudoeste ⬋
             pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 1);
             if (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
-            // esquerda
+
+            // esquerda ⬅
             pos.DefinirValores(Posicao.Linha, Posicao.Coluna - 1);
             if (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
-            // no
+
+            // noroeste ⬉
             pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna - 1);
             if (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
 
+            /*
             // #jogadaespecial roque
             if (qteMovimentos == 0 && !partida.xeque)
             {
@@ -100,7 +110,7 @@ namespace xadrez_console
                         mat[posicao.linha, posicao.coluna - 2] = true;
                     }
                 }
-            }
+            } */
             return mat;
         }
     }

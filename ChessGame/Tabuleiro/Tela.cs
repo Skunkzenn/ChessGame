@@ -28,7 +28,9 @@ namespace xadrez_console
                 Console.Write(8 - i + " ");
                 for (int j = 0; j < tab.Colunas; j++)
                 {
-                    if (posicoesPossiveis[i, j]) { //se a posição estiver marcada como uma posição de movimento, então mudamos a cor das posições possíveis para locomoção das peças
+                    if (posicoesPossiveis[i, j])
+                    { //se a posição estiver marcada como uma posição de movimento,
+                      //então mudamos a cor das posições possíveis para locomoção das peças
                         Console.BackgroundColor = fundoAlterado;
                     }
                     else
@@ -38,6 +40,7 @@ namespace xadrez_console
                     ImprimirPeca(tab.SupPeca(i, j));
                 }
                 Console.WriteLine();
+                Console.BackgroundColor = fundoOriginal;
             }
             Console.WriteLine("  a b c d e f g h");
             Console.BackgroundColor = fundoOriginal;

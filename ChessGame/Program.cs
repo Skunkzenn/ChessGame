@@ -34,8 +34,9 @@ namespace xadrez_console
                     bool[,] posicoesPossiveis = partida.Tab.SupPeca(origem).VerificarMovimentosPossiveis();
 
                     Console.Clear();
-                    Tela.ImprimirTabuleiro(partida.Tab);
+                    Tela.ImprimirTabuleiro(partida.Tab, posicoesPossiveis);
 
+                    Console.WriteLine();
                     Console.Write("Destino: ");
                     Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
 

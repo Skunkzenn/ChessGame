@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Net.Http.Headers;
+using System.Runtime.CompilerServices;
 using tabuleiro;
 
 namespace xadrez_console
@@ -9,6 +10,8 @@ namespace xadrez_console
         public int Turno { get; private set; }
         public Cor JogadorAtual { get; private set; }
         public bool Termidada { get; private set; }
+        private HashSet<Peca> ConjuntoPeca;
+        private HashSet<Peca> ConjuntoCapturado;
 
         public PartidaDeXadrez()
         {
@@ -16,6 +19,8 @@ namespace xadrez_console
             Turno = 1;
             JogadorAtual = Cor.Branco;
             Termidada = false;
+            ConjuntoPeca = new HashSet<Peca>();
+            ConjuntoCapturado = new HashSet<Peca>();
             ColocarPecas();
         }
 
@@ -25,6 +30,10 @@ namespace xadrez_console
             p.IncrementarMovimentos();
             Peca pecaCapturada = Tab.RemoverPeca(dest);
             Tab.AdicionarPeca(p, dest);
+            if (pecaCapturada != null)
+            {
+                ConjuntoCapturado.Add(pecaCapturada);
+            }
         }
 
         public void RealizaJogada(Posicao origem, Posicao destino)
@@ -70,22 +79,56 @@ namespace xadrez_console
             }
         }
 
+        public HashSet<Peca> PecasCapturadas(Cor cor)
+        {
+            HashSet<Peca> aux = new HashSet<Peca>();
+            foreach (Peca x in ConjuntoCapturado)
+            {
+                if (x.Cor == cor)
+                {
+                    aux.Add(x);
+                }
+            }
+            return aux;
+        }
+
+        public HashSet<Peca> PecasEmJogo(Cor cor)
+        {
+            HashSet<Peca> aux = new HashSet<Peca>();
+            foreach (Peca x in ConjuntoPeca)
+            {
+                if (x.Cor == cor)
+                {
+                    aux.Add(x);
+                }
+            }
+            aux.ExceptWith(PecasCapturadas(cor));
+            return aux;
+        }
+
+
+        public void ColocarNovaPeca(char coluna, int linha, Peca peca)
+        {
+            Tab.AdicionarPeca(peca, new PosicaoXadrez(coluna, linha).ToPosicao());
+            ConjuntoPeca.Add(peca);
+        }
 
         private void ColocarPecas()
         {
-            Tab.AdicionarPeca(new Torre(Tab, Cor.Branco), new PosicaoXadrez('c', 1).ToPosicao());
-            Tab.AdicionarPeca(new Torre(Tab, Cor.Branco), new PosicaoXadrez('c', 2).ToPosicao());
-            Tab.AdicionarPeca(new Torre(Tab, Cor.Branco), new PosicaoXadrez('d', 2).ToPosicao());
-            Tab.AdicionarPeca(new Torre(Tab, Cor.Branco), new PosicaoXadrez('e', 2).ToPosicao());
-            Tab.AdicionarPeca(new Torre(Tab, Cor.Branco), new PosicaoXadrez('e', 1).ToPosicao());
-            Tab.AdicionarPeca(new Rei(Tab, Cor.Branco), new PosicaoXadrez('d', 1).ToPosicao());
+            ColocarNovaPeca('c', 1, new Torre(Tab, Cor.Branco));
+            ColocarNovaPeca('c', 2, new Torre(Tab, Cor.Branco));
+            ColocarNovaPeca('d', 2, new Torre(Tab, Cor.Branco));
+            ColocarNovaPeca('e', 2, new Torre(Tab, Cor.Branco));
+            ColocarNovaPeca('e', 1, new Torre(Tab, Cor.Branco));
+            ColocarNovaPeca('d', 1, new Rei(Tab, Cor.Branco));
 
-            Tab.AdicionarPeca(new Torre(Tab, Cor.Preto), new PosicaoXadrez('c', 7).ToPosicao());
-            Tab.AdicionarPeca(new Torre(Tab, Cor.Preto), new PosicaoXadrez('c', 8).ToPosicao());
-            Tab.AdicionarPeca(new Torre(Tab, Cor.Preto), new PosicaoXadrez('d', 7).ToPosicao());
-            Tab.AdicionarPeca(new Torre(Tab, Cor.Preto), new PosicaoXadrez('e', 7).ToPosicao());
-            Tab.AdicionarPeca(new Torre(Tab, Cor.Preto), new PosicaoXadrez('e', 8).ToPosicao());
-            Tab.AdicionarPeca(new Rei(Tab, Cor.Preto), new PosicaoXadrez('d', 8).ToPosicao());
+            ColocarNovaPeca('c', 7, new Torre(Tab, Cor.Preto));
+            ColocarNovaPeca('c', 8, new Torre(Tab, Cor.Preto));
+            ColocarNovaPeca('d', 7, new Torre(Tab, Cor.Preto));
+            ColocarNovaPeca('e', 7, new Torre(Tab, Cor.Preto));
+            ColocarNovaPeca('e', 8, new Torre(Tab, Cor.Preto));
+            ColocarNovaPeca('d', 8, new Rei(Tab, Cor.Preto));
+
         }
     }
 }

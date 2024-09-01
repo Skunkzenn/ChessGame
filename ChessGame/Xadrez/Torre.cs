@@ -8,6 +8,10 @@ namespace xadrez_console
         {
         }
 
+        public override string ToString()
+        {
+            return "T";
+        }
 
         //Método para verificar se a peça pode ser movida par X posição
         private bool PodeMover(Posicao pos)
@@ -73,12 +77,5 @@ namespace xadrez_console
 
             return mat;
         }
-
-        public override string ToString()
-        {
-            return "T";
-        }
-
-
     }
 }

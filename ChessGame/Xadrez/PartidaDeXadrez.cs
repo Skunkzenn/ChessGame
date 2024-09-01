@@ -146,6 +146,7 @@ namespace xadrez_console
             return aux;
         }
 
+        //Método para definir o adversário
         private Cor Adversario(Cor cor)
         {
             if (cor == Cor.Branco)
@@ -228,19 +229,19 @@ namespace xadrez_console
 
         private void ColocarPecas()
         {
-            ColocarNovaPeca('a', 1, new Torre(Tab, Cor.Branco));
-            ColocarNovaPeca('c', 2, new Torre(Tab, Cor.Branco));
-            ColocarNovaPeca('b', 2, new Torre(Tab, Cor.Branco));
-            //ColocarNovaPeca('e', 2, new Torre(Tab, Cor.Branco));
-            //ColocarNovaPeca('e', 1, new Torre(Tab, Cor.Branco));
+            ColocarNovaPeca('c', 1, new Torre(Tab, Cor.Branco));
             ColocarNovaPeca('d', 1, new Rei(Tab, Cor.Branco));
+            ColocarNovaPeca('h', 7, new Torre(Tab, Cor.Branco));
+            //ColocarNovaPeca('d', 2, new Torre(Tab, Cor.Branco));
+            //ColocarNovaPeca('e', 1, new Torre(Tab, Cor.Branco));
+            //ColocarNovaPeca('d', 1, new Rei(Tab, Cor.Branco));
 
-            //ColocarNovaPeca('c', 7, new Torre(Tab, Cor.Preto));
-            //ColocarNovaPeca('c', 8, new Torre(Tab, Cor.Preto));
-            //ColocarNovaPeca('d', 7, new Torre(Tab, Cor.Preto));
-            //ColocarNovaPeca('e', 7, new Torre(Tab, Cor.Preto));
-            ColocarNovaPeca('b', 8, new Torre(Tab, Cor.Preto));
             ColocarNovaPeca('a', 8, new Rei(Tab, Cor.Preto));
+            ColocarNovaPeca('b', 8, new Torre(Tab, Cor.Preto));
+            //ColocarNovaPeca('a', 8, new Torre(Tab, Cor.Preto));
+            //ColocarNovaPeca('e', 7, new Torre(Tab, Cor.Preto));
+            //ColocarNovaPeca('d', 7, new Torre(Tab, Cor.Preto));
+            //ColocarNovaPeca('d', 8, new Rei(Tab, Cor.Preto));
 
         }
     }

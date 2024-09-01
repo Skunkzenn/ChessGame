@@ -17,15 +17,15 @@ namespace xadrez_console
                 Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
                 if (partida.Xeque)
                 {
-                    Console.WriteLine("CUIDADO COM O XEQUE MATE!");
+                    Console.WriteLine("OPONENTE, VOCÊ ESTÁ EM XEQUE-MATE, TOME CUIDADO!");
                 }
             }
             else
             {
-                Console.WriteLine("XEQUEMATE!");
+                Console.WriteLine("XEQUE-MATE, BYE NOOB!");
                 Console.WriteLine("Vencedor: " + partida.JogadorAtual);
             }
-            
+
         }
 
         public static void ImprimirPecasCapturadas(PartidaDeXadrez partida)

@@ -28,7 +28,7 @@ namespace xadrez_console
         private bool TesteTorreRoque(Posicao pos)
         {
             Peca p = Tab.SupPeca(pos);
-            return p != null && p is Torre && p.Cor != Cor && p.QntMovimentos == 0;
+            return p != null && p is Torre && p.Cor == Cor && p.QntMovimentos == 0;
         }
 
         public override bool[,] VerificarMovimentosPossiveis()
@@ -92,7 +92,6 @@ namespace xadrez_console
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
-
 
             // #jogadaespecial roque
             if (QntMovimentos == 0 && !Partida.Xeque)

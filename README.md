@@ -1,5 +1,6 @@
-Chess Console Game
-Sobre o Projeto
+# Chess Console Game in C#
+
+## Sobre o Projeto
 Este é um jogo de Xadrez desenvolvido em C#, jogado via consola. O objetivo é criar uma simulação simples e funcional de uma partida de Xadrez, com todas as peças e regras do jogo implementadas.
 
 Estrutura do Projeto

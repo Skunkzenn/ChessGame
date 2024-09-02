@@ -29,12 +29,13 @@ Peças do Xadrez:
 - Cavalo.cs
 - Peao.cs
 
-##Funcionalidades
-Implementação completa das regras do Xadrez.
-Suporte para todas as peças: Rei, Rainha, Torre, Bispo, Cavalo e Peão.
-Movimentos especiais como roque, promoção de peão e en passant.
-Validação de movimentos e captura de peças.
-Tratamento de exceções para garantir movimentos válidos.
+## Funcionalidades
+- **Implementação completa das regras do Xadrez.**
+- **Suporte para todas as peças: Rei, Rainha, Torre, Bispo, Cavalo e Peão.**
+- **Movimentos especiais como roque, promoção de peão e en passant.**
+- **Validação de movimentos e captura de peças.**
+- **Tratamento de exceções para garantir movimentos válidos.**
+
 Como Jogar
 Clone este repositório:
 

@@ -56,5 +56,5 @@ dotnet run
 4. Siga as instruções no console para jogar uma partida de Xadrez.
 
 ## Exemplo de Uso
-# No início do jogo, o tabuleiro será exibido no console. Os jogadores serão solicitados a inserir seus movimentos no formato de notação de Xadrez (por exemplo, "e2 e4" para mover um peão).
+No início do jogo, o tabuleiro será exibido no console. Os jogadores serão solicitados a inserir seus movimentos no formato de notação de Xadrez (por exemplo, "e2 e4" para mover um peão).
 

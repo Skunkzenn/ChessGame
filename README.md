@@ -36,16 +36,14 @@ Peças do Xadrez:
 - **Validação de movimentos e captura de peças.**
 - **Tratamento de exceções para garantir movimentos válidos.**
 
-Como Jogar
-Clone este repositório:
+### Como Jogar
 
-sh
-Copiar código
+1. Clone este repositório:
+```bash
 git clone https://github.com/seu-usuario/chess-console-game.git
-Navegue até o diretório do projeto:
 
-sh
-Copiar código
+2. Navegue até o diretório do projeto:
+```bash
 cd chess-console-game
 Compile e execute o projeto:
 

@@ -2,6 +2,7 @@
 
 ## Sobre o Projeto
 Este é um jogo de Xadrez desenvolvido em C#, jogado via consola. O objetivo é criar uma simulação simples e funcional de uma partida de Xadrez, com todas as peças e regras do jogo implementadas.
+Este projeto foi desenvolvido como parte do curso de C# disponível na Udemy, lecionado pelo professor Nélio Alves. O curso abrange os conceitos fundamentais da linguagem C#, com ênfase em boas práticas de programação e desenvolvimento de aplicações práticas, como este jogo de Xadrez jogado via consola.
 
 ## Estrutura do Projeto
 O projeto está organizado em duas pastas principais: Tabuleiro e Xadrez.

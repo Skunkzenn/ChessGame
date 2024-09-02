@@ -18,16 +18,18 @@ Esta pasta contém as classes e componentes fundamentais que formam a base do ta
 ## Pasta Xadrez
 Esta pasta contém as classes específicas do jogo de Xadrez:
 
-PartidaDeXadrez.cs: Gerencia o andamento da partida, controlando os turnos, movimentos e regras.
-PosicaoXadrez.cs: Converte posições tradicionais de Xadrez (como "e2") para o formato de Posicao usado no tabuleiro.
+- **PartidaDeXadrez.cs**: Gerencia o andamento da partida, controlando os turnos, movimentos e regras.
+- **PosicaoXadrez.cs**: Converte posições tradicionais de Xadrez (como "e2") para o formato de Posicao usado no tabuleiro.
+
 Peças do Xadrez:
-Rei.cs
-Rainha.cs
-Torre.cs
-Bispo.cs
-Cavalo.cs
-Peao.cs
-Funcionalidades
+- Rei.cs
+- Rainha.cs
+- Torre.cs
+- Bispo.cs
+- Cavalo.cs
+- Peao.cs
+
+##Funcionalidades
 Implementação completa das regras do Xadrez.
 Suporte para todas as peças: Rei, Rainha, Torre, Bispo, Cavalo e Peão.
 Movimentos especiais como roque, promoção de peão e en passant.

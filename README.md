@@ -3,19 +3,19 @@
 ## Sobre o Projeto
 Este é um jogo de Xadrez desenvolvido em C#, jogado via consola. O objetivo é criar uma simulação simples e funcional de uma partida de Xadrez, com todas as peças e regras do jogo implementadas.
 
-Estrutura do Projeto
+## Estrutura do Projeto
 O projeto está organizado em duas pastas principais: Tabuleiro e Xadrez.
 
-Pasta Tabuleiro
+## Pasta Tabuleiro
 Esta pasta contém as classes e componentes fundamentais que formam a base do tabuleiro de Xadrez:
+- **Cor.cs**: Define as cores das peças (Branco e Preto).
+- **Peca.cs**: Classe base para todas as peças do jogo.
+- **Posicao.cs**: Representa uma posição no tabuleiro (linha e coluna).
+- **Tabuleiro.cs**: Representa o tabuleiro de Xadrez em si, gerenciando as posições e peças.
+- **TabuleiroException.cs**: Trata exceções relacionadas ao tabuleiro (como posições inválidas).
+- **Tela.cs**: Responsável por mostrar o estado do tabuleiro e as peças no console.
 
-Cor.cs: Define as cores das peças (Branco e Preto).
-Peca.cs: Classe base para todas as peças do jogo.
-Posicao.cs: Representa uma posição no tabuleiro (linha e coluna).
-Tabuleiro.cs: Representa o tabuleiro de Xadrez em si, gerenciando as posições e peças.
-TabuleiroException.cs: Trata exceções relacionadas ao tabuleiro (como posições inválidas).
-Tela.cs: Responsável por mostrar o estado do tabuleiro e as peças no console.
-Pasta Xadrez
+## Pasta Xadrez
 Esta pasta contém as classes específicas do jogo de Xadrez:
 
 PartidaDeXadrez.cs: Gerencia o andamento da partida, controlando os turnos, movimentos e regras.

@@ -60,3 +60,7 @@ dotnet run
 ## Exemplo de Uso
 No início do jogo, o tabuleiro será exibido no console. Os jogadores serão solicitados a inserir seus movimentos no formato de notação de Xadrez (por exemplo, "e2 e4" para mover um peão).
 
+**Autor:** Victor Destefani  
+**Curso:** Desenvolvimento em C# - Udemy  
+**Instrutor:** Nélio Alves
+

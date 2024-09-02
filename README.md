@@ -37,17 +37,24 @@ Peças do Xadrez:
 - **Tratamento de exceções para garantir movimentos válidos.**
 
 ### Como Jogar
-Clone este repositório:
+
+1. Clone este repositório:
 ```bash
 git clone https://github.com/seu-usuario/chess-console-game.git
+```
 
 2. Navegue até o diretório do projeto:
 ```bash
 cd chess-console-game
+```
 
-Compile e execute o projeto:
+3. Compile e execute o projeto:
+```bash
 dotnet run
-Siga as instruções no console para jogar uma partida de Xadrez.
+```
 
-Exemplo de Uso
-No início do jogo, o tabuleiro será exibido no console. Os jogadores serão solicitados a inserir seus movimentos no formato de notação de Xadrez (por exemplo, "e2 e4" para mover um peão).
+4. Siga as instruções no console para jogar uma partida de Xadrez.
+
+## Exemplo de Uso
+# No início do jogo, o tabuleiro será exibido no console. Os jogadores serão solicitados a inserir seus movimentos no formato de notação de Xadrez (por exemplo, "e2 e4" para mover um peão).
+

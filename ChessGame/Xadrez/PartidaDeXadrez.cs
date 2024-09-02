@@ -15,7 +15,7 @@ namespace xadrez_console
         private HashSet<Peca> ConjuntoPeca;
         private HashSet<Peca> ConjuntoCapturado;
         public bool Xeque { get; private set; }
-
+        public Peca VulneravelEnPassant { get; private set; }; // Peça para verificar o movimento passant 
         private PartidaDeXadrez Partida; //Campo privativo, para que o rei tenha acesso a partida
 
         public PartidaDeXadrez()
@@ -27,6 +27,7 @@ namespace xadrez_console
             ConjuntoPeca = new HashSet<Peca>();
             ConjuntoCapturado = new HashSet<Peca>();
             Xeque = false;
+            VulneravelEnPassant = null;
             ColocarPecas();
         }
 
@@ -107,6 +108,7 @@ namespace xadrez_console
         public void RealizaJogada(Posicao origem, Posicao destino)
         {
             Peca pecaCapturada = ExecutaMovimento(origem, destino);
+            Peca p = Tab.SupPeca(destino);
 
             if (EstaEmXeque(JogadorAtual))
             {
@@ -131,6 +133,16 @@ namespace xadrez_console
             {
                 Turno++;
                 AlteraJogador();
+            }
+
+            // #jogadaespecial en passant
+            if (p is Peao && (destino.Linha == origem.Linha - 2 || destino.Linha == origem.Linha + 2))
+            {
+                VulneravelEnPassant = p;
+            }
+            else
+            {
+                VulneravelEnPassant = null;
             }
         }
 

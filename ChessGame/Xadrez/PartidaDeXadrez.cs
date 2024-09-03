@@ -147,12 +147,25 @@ namespace xadrez_console
         public void RealizaJogada(Posicao origem, Posicao destino)
         {
             Peca pecaCapturada = ExecutaMovimento(origem, destino);
-            Peca p = Tab.SupPeca(destino);
+            Peca p = Tab.SupPeca(destino); //Obter peça que foi movimentada
 
             if (EstaEmXeque(JogadorAtual))
             {
                 DesfazMovimento(origem, destino, pecaCapturada);
                 throw new TabuleiroException("Você não pode se colocar em xeque!");
+            }
+
+            // #jogadaespecial promocao
+            if (p is Peao)
+            {//se foi o branco / preto que chegaram na ultima linha da matriz, é uma jogada de promoção
+                if ((p.Cor == Cor.Branco && destino.Linha == 0) || (p.Cor == Cor.Preto && destino.Linha == 7))
+                {
+                    p = Tab.RemoverPeca(destino);
+                    ConjuntoPeca.Remove(p);
+                    Peca dama = new Dama(Tab, p.Cor);
+                    Tab.AdicionarPeca(dama, destino);
+                    ConjuntoPeca.Add(dama);
+                }
             }
 
             if (EstaEmXeque(Adversario(JogadorAtual)))
@@ -183,6 +196,9 @@ namespace xadrez_console
             {
                 VulneravelEnPassant = null;
             }
+
+            // jogada especial promoção
+
         }
 
         //Altera jogador atual

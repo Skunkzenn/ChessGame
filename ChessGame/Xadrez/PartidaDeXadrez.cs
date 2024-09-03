@@ -15,7 +15,7 @@ namespace xadrez_console
         private HashSet<Peca> ConjuntoPeca;
         private HashSet<Peca> ConjuntoCapturado;
         public bool Xeque { get; private set; }
-        public Peca VulneravelEnPassant { get; private set; }; // Peça para verificar o movimento passant 
+        public Peca VulneravelEnPassant { get; private set; } // Peça para verificar o movimento passant 
         private PartidaDeXadrez Partida; //Campo privativo, para que o rei tenha acesso a partida
 
         public PartidaDeXadrez()
@@ -69,6 +69,26 @@ namespace xadrez_console
                 T.IncrementarMovimentos();
                 Tab.AdicionarPeca(T, destinoT);
             }
+
+            // #jogadaespecial en passant
+            if (p is Peao)
+            {
+                //se a origem for diferente do destino ou seja, significa que o peão mexeu na diagonal e se for null significa que foi en passant
+                if (origem.Coluna != destino.Coluna && pecaCapturada == null)
+                {
+                    Posicao posP; // aux para capturar posição do peão
+                    if (p.Cor == Cor.Branco)
+                    {
+                        posP = new Posicao(destino.Linha + 1, destino.Coluna);
+                    }
+                    else
+                    {
+                        posP = new Posicao(destino.Linha - 1, destino.Coluna);
+                    }
+                    pecaCapturada = Tab.RemoverPeca(posP);
+                    ConjuntoCapturado.Add(pecaCapturada);
+                }
+            }
             return pecaCapturada;
         }
 
@@ -103,6 +123,25 @@ namespace xadrez_console
                 Tab.AdicionarPeca(T, origemT);
             }
 
+            //# desfaz jogadaespecial en passant
+            if (p is Peao)
+            {
+                //se o movimento foi para uma coluna diferente e a peça capturada foi uma peça vulnerável
+                if (origem.Coluna != destino.Coluna && pecaCapturada == VulneravelEnPassant)
+                {
+                    Peca peao = Tab.RemoverPeca(destino); //Remove peça do destino
+                    Posicao posP;
+                    if (p.Cor == Cor.Branco) //Se foi o peão branco que mexeu e capturou a peça preta
+                    {
+                        posP = new Posicao(3, destino.Coluna); //reverte a posição para realocar o peão preto na posição de origem
+                    }
+                    else //se foi o peão preto que mexeu e capturou a peça branca
+                    {
+                        posP = new Posicao(4, destino.Coluna); //reverte a posição para realocar o peão branco na posição de preto
+                    }
+                    Tab.AdicionarPeca(peao, posP);
+                }
+            }
         }
 
         public void RealizaJogada(Posicao origem, Posicao destino)

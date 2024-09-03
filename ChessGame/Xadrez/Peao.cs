@@ -64,7 +64,7 @@ namespace xadrez
                 if (Posicao.Linha == 3)
                 {
                     //Posição a esquerda
-                    Posicao esquerda = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
+                    Posicao esquerda = new Posicao(Posicao.Linha, Posicao.Coluna - 1); //Posição da peça que está vulnerável
                     
                     //se a casa da esquerda é uma posição valida, existe um inimigo na esquerda e se a peça da esquerda é um peao vulnerárvel...
                     if (Tab.PosicaoValida(esquerda) && ExisteInimigo(esquerda) && Tab.SupPeca(esquerda) == Partida.VulneravelEnPassant)
@@ -73,7 +73,7 @@ namespace xadrez
                     }
                     
                     //Posição a direita
-                    Posicao direita = new Posicao(Posicao.Linha, Posicao.Coluna + 1);
+                    Posicao direita = new Posicao(Posicao.Linha, Posicao.Coluna + 1); //Posição da peça que está vulnerável
                     if (Tab.PosicaoValida(direita) && ExisteInimigo(direita) && Tab.SupPeca(direita) == Partida.VulneravelEnPassant)
                     {
                         mat[direita.Linha - 1, direita.Coluna] = true;
@@ -107,12 +107,12 @@ namespace xadrez
                 // #JogadaEspecial En Passant
                 if (Posicao.Linha == 4)
                 {
-                    Posicao esquerda = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
+                    Posicao esquerda = new Posicao(Posicao.Linha, Posicao.Coluna - 1); //Posição da peça que está vulnerável
                     if (Tab.PosicaoValida(esquerda) && ExisteInimigo(esquerda) && Tab.SupPeca(esquerda) == Partida.VulneravelEnPassant)
                     {
                         mat[esquerda.Linha + 1, esquerda.Coluna] = true;
                     }
-                    Posicao direita = new Posicao(Posicao.Linha, Posicao.Coluna + 1);
+                    Posicao direita = new Posicao(Posicao.Linha, Posicao.Coluna + 1); //Posição da peça que está vulnerável
                     if (Tab.PosicaoValida(direita) && ExisteInimigo(direita) && Tab.SupPeca(direita) == Partida.VulneravelEnPassant)
                     {
                         mat[direita.Linha + 1, direita.Coluna] = true;
